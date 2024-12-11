@@ -9,6 +9,6 @@ describe("Metrics calculation", () => {
 
     it("should calculate the expense correctly", () => {
         const {expense} = calculationOfMetrics(mockData);
-        expect(revenue).toBe("$3,665")
+        expect(expense).toBe("$3,665")
     })
 })
