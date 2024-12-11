@@ -1,27 +1,33 @@
-const data = require("./data.json")
-const mock_data = require("./test/mock_data.json")
-const accountData = data.data
+const data = require("./data.json");
+const mock_data = require("./test/mock_data.json");
+const accountData = data.data;
 
-function formatValue(value){
-    return `$${value.toLocaleString('en-US', { maximumFractionDigits: 0 })}`
+function formatValue(value) {
+  return `$${value.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
 }
 
-function  calculationOfMetrics(accountData){
-    const revenue = formatValue(accountData
-                    .filter(entry => entry.account_category === "revenue")
-                    .reduce((sum, entry) => sum + entry.total_value, 0));
+function calculationOfMetrics(accountData) {
+  const revenue =
+    accountData
+      .filter((entry) => entry.account_category === "revenue")
+      .reduce((sum, entry) => sum + entry.total_value, 0);
 
-    const expense = formatValue(accountData
-                                .filter(entry => entry.account_category === "expense")
-                                .reduce((sum, entry) => sum + entry.total_value, 0));
+  const expense =
+    accountData
+      .filter((entry) => entry.account_category === "expense")
+      .reduce((sum, entry) => sum + entry.total_value, 0);
 
-    return {
-        revenue: revenue,
-        expense: expense
-    }
-    
+  const grossProfitMargin = (accountData
+    .filter((entry) => entry.account_type === "sales" && entry.value_type === "debit")
+    .reduce((sum, entry) => sum + entry.total_value, 0)/revenue)*100 || 0;
+
+  return {
+    revenue: formatValue(revenue),
+    expense: formatValue(expense),
+    grossProfitMargin: `${(grossProfitMargin*100).toFixed(1)}%`
+  };
 }
 
-console.log(calculationOfMetrics(mock_data))
+console.log(calculationOfMetrics(mock_data));
 
-module.exports = {calculationOfMetrics}
+module.exports = { calculationOfMetrics };

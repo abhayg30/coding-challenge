@@ -81,7 +81,7 @@
         "account_code": "429",
         "account_currency": "AUD",
         "account_status": "ACTIVE",
-        "account_type": "overheads",
+        "account_type": "sales",
         "account_type_bank": "",
         "account_category": "expense",
         "account_identifier": "94882296-5acf-4350-8c5b-82bc9370ab78",
