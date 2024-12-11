@@ -88,8 +88,9 @@ Net Profit Margin: 21%
 Working Capital Ratio: 95%
 ```
 
-# Dependencies
+## How to run
 
-If your program requires a special way to compile or a specific version of a toolset, please be sure to include that in your running instructions.
-
-__Thank you and good luck!__
+* Clone the repository locally
+* Run `npm install` to install necessary dependencies
+* Run `npm start` to run the application
+* Run `npm test` to run the test 
