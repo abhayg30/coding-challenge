@@ -10,8 +10,18 @@ function  calculationOfMetrics(accountData){
     const revenue = formatValue(accountData
                     .filter(entry => entry.account_category === "revenue")
                     .reduce((sum, entry) => sum + entry.total_value, 0));
-    return revenue
+
+    const expense = formatValue(accountData
+                                .filter(entry => entry.account_category === "expense")
+                                .reduce((sum, entry) => sum + entry.total_value, 0));
+
+    return {
+        revenue: revenue,
+        expense: expense
+    }
     
 }
+
+console.log(calculationOfMetrics(mock_data))
 
 module.exports = {calculationOfMetrics}
