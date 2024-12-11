@@ -1,6 +1,6 @@
-const data = require("./data.json");
+const allData = require("./data.json");
 const mock_data = require("./test/mock_data.json");
-const accountData = data.data;
+const accountData = allData.data;
 
 const assetsType = ["current", "bank", "current_accounts_receivable"];
 const liabilitiesType = ["current", "current_accounts_payable"];
@@ -65,6 +65,12 @@ function calculationOfMetrics(accountData) {
   };
 }
 
-console.log(calculationOfMetrics(mock_data));
+const response = calculationOfMetrics(accountData);
+console.log(`Revenue: ${response.revenue}`);
+console.log(`Expenses: ${response.expense}`);
+console.log(`Gross Profit Margin: ${response.grossProfitMargin}`);
+console.log(`Net Profit Margin: ${response.netProfitMargin}`);
+console.log(`Working Capital Ratio: ${response.workingCapitalRatio}`);
+
 
 module.exports = { calculationOfMetrics };
