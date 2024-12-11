@@ -14,6 +14,11 @@ describe("Metrics calculation", () => {
 
   it("should calculate gross profit margin correctly", () => {
     const { grossProfitMargin } = calculationOfMetrics(mockData);
-    expect(grossProfitMargin).toBe('298.1%');
+    expect(grossProfitMargin).toBe("298.1%");
+  });
+
+  it("should calculate net profit margin correctly", () => {
+    const { netProfitMargin } = calculationOfMetrics(mockData);
+    expect(netProfitMargin).toBe("88.7%");
   });
 });
