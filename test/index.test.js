@@ -21,4 +21,9 @@ describe("Metrics calculation", () => {
     const { netProfitMargin } = calculationOfMetrics(mockData);
     expect(netProfitMargin).toBe("88.7%");
   });
+
+  it("should calculate working capital ratio correctly", () => {
+    const { workingCapitalRatio } = calculationOfMetrics(mockData);
+    expect(workingCapitalRatio).toBe("0.0%");
+  });
 });
