@@ -93,4 +93,4 @@ Working Capital Ratio: 95%
 * Clone the repository locally
 * Run `npm install` to install necessary dependencies
 * Run `npm start` to run the application
-* Run `npm test` to run the test 
+* Run `npm test` to run tests/test suite
